@@ -1,0 +1,7 @@
+# Day 8 Reflection
+
+The most difficult concept in this course was understanding how to prevent two people from buying the same seat when requests arrive at almost the same time. At first, checking whether a seat was available seemed enough. I learned that two requests can both see the seat as available before either request updates it. To overcome this, I studied database transactions, row locking, conditional updates, and unique constraints. The database must be the final authority, rather than relying only on the front end.
+
+Based on feedback from my capstone presentation, I would improve the architecture explanation by connecting every component to a specific problem. For example, a cache reduces repeated reads, a load balancer distributes requests, and a waiting room controls the number of people entering a high-demand sale. I would also show a request in the browser's Network tab during the demo so the audience can see how the front end communicates with the API. Finally, I would practise the presentation with a timer and prepare clearer examples of API responses and error handling.
+
+Next, I want to build a real backend using Node.js and Express, connect it to PostgreSQL, and practise writing SQL queries and transactions. I also want to learn automated testing and load testing so I can check whether a system behaves correctly under pressure. These skills will help me move from designing systems on paper to building and testing reliable applications.

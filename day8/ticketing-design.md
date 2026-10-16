@@ -102,7 +102,6 @@ Use a REST-style JSON API under `/api/v1`. Require authentication for holds, pur
 
 Request:
 
-```http
 POST /api/v1/holds
 Content-Type: application/json
 Authorization: Bearer <access-token>
@@ -112,11 +111,10 @@ Idempotency-Key: 8d3f...unique-client-key
   "eventId": "evt_123",
   "seatIds": ["seat_A12", "seat_A13"]
 }
-```
+
 
 Successful response (`201 Created`):
 
-```json
 {
   "holdId": "hold_456",
   "eventId": "evt_123",
@@ -124,7 +122,7 @@ Successful response (`201 Created`):
   "status": "ACTIVE",
   "expiresAt": "2026-10-17T12:05:00Z"
 }
-```
+
 
 If another customer already holds either requested seat, return `409 Conflict` and do not create a partial hold. The client should refresh seat availability and ask the user to choose again.
 
@@ -132,7 +130,6 @@ If another customer already holds either requested seat, return `409 Conflict` a
 
 Request:
 
-```http
 POST /api/v1/orders
 Content-Type: application/json
 Authorization: Bearer <access-token>
@@ -142,7 +139,7 @@ Idempotency-Key: order-attempt-unique-key
   "holdId": "hold_456",
   "paymentMethod": "CARD"
 }
-```
+
 
 The response can be `201 Created` with `status: "PENDING_PAYMENT"` and a payment-provider checkout URL or payment intent reference. The final order becomes `CONFIRMED` only after the provider's signed confirmation has been verified and recorded.
 
